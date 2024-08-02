@@ -1,0 +1,25 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    padding: 20px;
+}
+
+h1, h2 {
+    color: #343a40;
+}
+
+.code-form textarea {
+    border-radius: 4px;
+}
+
+.list-group-item a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.list-group-item a:hover {
+    text-decoration: underline;
+}

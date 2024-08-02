@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Sharing App</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="mb-4">
+            <h1 class="text-center">Submit Your Code Snippet</h1>
+        </header>
+        
+        <section class="code-form bg-white p-4 rounded shadow-sm">
+            <form action="{{ url_for('main.submit') }}" method="post">
+                <div class="form-group">
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" name="title" class="form-control" placeholder="Enter title" required>
+                </div>
+                <div class="form-group">
+                    <label for="code">Code:</label>
+                    <textarea id="code" name="code" class="form-control" rows="10" placeholder="Enter your code here" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+            </form>
+        </section>
+        
+        <section class="mt-5">
+            <h2 class="text-center">Submitted Snippets</h2>
+            <ul class="list-group">
+                {% for snippet in snippets %}
+                    <li class="list-group-item">
+                        <a href="{{ url_for('main.view_snippet', snippet_id=snippet.id) }}" class="text-dark">{{ snippet.title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<h1>Code Snippets</h1>
+<a href="{{ url_for('main.add_snippet') }}" class="btn btn-primary">Add New Snippet</a>
+<ul class="list-group mt-3">
+    {% for snippet in snippets %}
+        <li class="list-group-item">
+            <h5>{{ snippet.title }}</h5>
+            <p>{{ snippet.description }}</p>
+            <pre><code>{{ snippet.code | e }}</code></pre>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
