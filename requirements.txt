@@ -1,0 +1,7 @@
+Flask==2.3.2
+pymysql==1.0.3
+python-dotenv==1.0.0
+Flask-WTF==1.1.1
+Flask-Limiter==2.6.1
+Flask-Talisman==1.0.0
+Werkzeug==2.3.2
